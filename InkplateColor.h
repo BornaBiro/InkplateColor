@@ -23,10 +23,14 @@ NOTE: This library is still heavily in progress, so there is still some bugs. Us
 #error "Wrong board selected! Select ESP32 Wrover from board menu!"
 #endif
 
-#define EPAPER_RST_PIN         19
-#define EPAPER_DC_PIN          33
-#define EPAPER_CS_PIN          15
-#define EPAPER_BUSY_PIN        32
+#define EPAPER_RST_PIN          19
+#define EPAPER_DC_PIN           33
+#define EPAPER_CS_PIN           15
+#define EPAPER_BUSY_PIN         32
+#define EPAPER_CLK              
+#define EPAPER_DIN      
+        
+#define INIT_TIMEOUT            1500
 
 #define PANEL_SET_REGISTER          0x00
 #define POWER_SET_REGISTER          0x01
@@ -37,7 +41,7 @@ NOTE: This library is still heavily in progress, so there is still some bugs. Us
 #define DEEP_SLEEP_REGISTER         0x07
 #define DATA_START_TRANS_REGISTER   0x10
 #define DATA_STOP_REGISTER          0x11
-#define DESPLAY_REF_REGISTER        0x12
+#define DISPLAY_REF_REGISTER        0x12
 #define IMAGE_PROCESS_REGISTER      0x13
 #define PLL_CONTROL_REGISTER        0x30
 #define TEMP_SENSOR_REGISTER        0x40
@@ -69,13 +73,18 @@ NOTE: This library is still heavily in progress, so there is still some bugs. Us
 class Inkplate : public Adafruit_GFX {
   public:
         Inkplate();
-        void begin();
+        bool begin();
         void clearDisplay();
         void display();
         void drawPixel(int16_t _x0, int16_t _y0, uint16_t _color);
+        void setPanelState(bool _state);
+        bool getPanelState();
+        void clean();
         void fillPanel(uint8_t _color);
         
   private:
+        bool _panelState = false;
+        bool _begin = false;
         uint8_t *imageBuffer;
         const uint8_t pixelMaskGLUT[2] = {B00001111, B11110000};
         void resetPanel();
