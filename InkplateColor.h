@@ -23,15 +23,18 @@ NOTE: This library is still heavily in progress, so there is still some bugs. Us
 #error "Wrong board selected! Select ESP32 Wrover from board menu!"
 #endif
 
+// Connections between ESP32 and color Epaper
 #define EPAPER_RST_PIN          19
 #define EPAPER_DC_PIN           33
 #define EPAPER_CS_PIN           15
 #define EPAPER_BUSY_PIN         32
-#define EPAPER_CLK              
-#define EPAPER_DIN      
-        
+#define EPAPER_CLK              18
+#define EPAPER_DIN              23
+
+// Timeout for init of epaper (1.5 sec in this case)        
 #define INIT_TIMEOUT            1500
 
+// Epaper registers
 #define PANEL_SET_REGISTER          0x00
 #define POWER_SET_REGISTER          0x01
 #define POWER_OFF_REGISTER          0x02
@@ -55,6 +58,7 @@ NOTE: This library is still heavily in progress, so there is still some bugs. Us
 #define VCOM_VALUE_REGISTER         0x81
 #define VCM_DC_SET_REGISTER         0x02
 
+// Epaper resolution and colors
 #define INKPLATE_WIDTH  600
 #define INKPLATE_HEIGHT 448
 #define INKPLATE_BLACK  0b00000000

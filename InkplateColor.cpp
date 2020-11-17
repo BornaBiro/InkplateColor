@@ -55,7 +55,6 @@ bool Inkplate::begin()
     if (!digitalRead(EPAPER_BUSY_PIN)) return false;
 
     // Send whole bunch of commands and data
-
     uint8_t panel_set_data[] = {0xef, 0x08};
     sendCommand(PANEL_SET_REGISTER);
     sendData(panel_set_data, 2);
