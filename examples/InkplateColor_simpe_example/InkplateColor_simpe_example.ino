@@ -49,7 +49,8 @@ void setup()
     // Draw some black line with first cooridinate X = 600, Y = 400 and second cooridinate X = 250, Y = 420
     display.drawLine(60, 400, 250, 420, INKPLATE_BLACK);
     
-    // And the last one, draw e-radionica logo (using Inkplate image converter that can be found on inkplate.io)
+    // And the last one, draw e-radionica logo in blue color (using Inkplate image converter that can be found on inkplate.io)
+    // Note: In order to display image properly you have to select Invert option on Inkplate image converter, otherwise bitmap color would be inverted
     display.drawBitmap(400, 50, logo, logo_w, logo_h, INKPLATE_BLUE);
     
     // Write image to the screen
