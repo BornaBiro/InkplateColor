@@ -26,7 +26,7 @@ NOTE: This library is still heavily in progress, so there is still some bugs. Us
 // Connections between ESP32 and color Epaper
 #define EPAPER_RST_PIN          19
 #define EPAPER_DC_PIN           33
-#define EPAPER_CS_PIN           15
+#define EPAPER_CS_PIN           27
 #define EPAPER_BUSY_PIN         32
 #define EPAPER_CLK              18
 #define EPAPER_DIN              23
